@@ -1,0 +1,79 @@
+{
+  "magic": 2349042459,
+  "address-version": 53,
+  "consensus-nodes": [
+    {
+      "tcp-port": 50013,
+      "ws-port": 50014,
+      "rpc-port": 50012,
+      "wallet": {
+        "name": "node1",
+        "accounts": [
+          {
+            "private-key": "e76f9f161b61055d04dfdb195bf2dbdcb72345e7ff3b199505770a5e626dc230",
+            "script-hash": "NPgfV4NL9hbJXxqgufEQx71pWwdAW89DGN",
+            "label": null,
+            "is-default": true,
+            "contract": {
+              "script": "0c2103d743ae8027d571093febf5634e8d994db809f35bfd0e84550271c61cb280e1844156e7b327",
+              "parameters": [
+                "Signature"
+              ]
+            }
+          },
+          {
+            "private-key": "e76f9f161b61055d04dfdb195bf2dbdcb72345e7ff3b199505770a5e626dc230",
+            "script-hash": "NZgviu6ai6Le8jYZZa3WYMLv2ZjGvjU2Ms",
+            "label": "Consensus MultiSigContract",
+            "is-default": false,
+            "contract": {
+              "script": "110c2103d743ae8027d571093febf5634e8d994db809f35bfd0e84550271c61cb280e18411419ed0dc3a",
+              "parameters": [
+                "Signature"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "wallets": [
+    {
+      "name": "Sheremetego",
+      "accounts": [
+        {
+          "private-key": "529da98a57ee20d8360a7c6377f9a9e39d84c22bcf1be45de2c4e2ff892a6b4e",
+          "script-hash": "NimiqChy6z2FyXDTyfX7qrq1JVLTEM1rc3",
+          "label": null,
+          "is-default": true,
+          "contract": {
+            "script": "0c21033a619abab1fe4886ce515a2b5903cff438ba94a4431a393ec878b59c83e6def24156e7b327",
+            "parameters": [
+              "Signature"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "usst",
+      "accounts": [
+        {
+          "private-key": "56bc062fd05f4c41f3225db06581b7d3791faacca6a58ba96e6586d5a50807de",
+          "script-hash": "Nj9FnhmJezTAx4a38ph8gL2MdD2kMLutkh",
+          "label": null,
+          "is-default": true,
+          "contract": {
+            "script": "0c2103f9f645ed33a99811a598b01646026c4380c2f41f22ba480d83686fe0f0f1eff94156e7b327",
+            "parameters": [
+              "Signature"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "rpc.Port": "50012"
+  }
+}

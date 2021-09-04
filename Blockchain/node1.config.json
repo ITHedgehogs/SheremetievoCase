@@ -1,0 +1,27 @@
+{
+  "ApplicationConfiguration": {
+    "Storage": {
+      "Engine": "MemoryStore"
+    },
+    "P2P": {
+      "Port": 50013,
+      "WsPort": 50014
+    },
+    "UnlockWallet": {
+      "Path": "/home/travis/projects/SheremetievoCase/Blockchain/node1.wallet.json",
+      "Password": "",
+      "IsActive": true
+    }
+  },
+  "ProtocolConfiguration": {
+    "Magic": 2349042459,
+    "AddressVersion": 53,
+    "ValidatorsCount": 1,
+    "StandbyCommittee": [
+      "03d743ae8027d571093febf5634e8d994db809f35bfd0e84550271c61cb280e184"
+    ],
+    "SeedList": [
+      "127.0.0.1:50013"
+    ]
+  }
+}

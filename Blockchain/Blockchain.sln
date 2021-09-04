@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.6.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blockchain", "Blockchain.csproj", "{9207411C-B94C-4495-A9A3-26C41A99EE1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "smartcontract", "smartcontract\smartcontract.csproj", "{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Debug|x64.Build.0 = Debug|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Debug|x86.Build.0 = Debug|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Release|x64.ActiveCfg = Release|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Release|x64.Build.0 = Release|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Release|x86.ActiveCfg = Release|Any CPU
+		{9207411C-B94C-4495-A9A3-26C41A99EE1B}.Release|x86.Build.0 = Release|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Debug|x64.Build.0 = Debug|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Debug|x86.Build.0 = Debug|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Release|x64.ActiveCfg = Release|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Release|x64.Build.0 = Release|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Release|x86.ActiveCfg = Release|Any CPU
+		{FEEBAB56-A68D-4390-8FE1-6192241DC1EA}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
