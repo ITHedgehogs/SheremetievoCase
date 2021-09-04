@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "A3lTbnZJX2XIgK5wpgKy8MAW6y4Z9CaT96z0W6ObOa/xSqyJEH+QjuI8IGtYMSHwC3V0vER/TpkZLI2pOqLcRg==",
+  "success": true,
+  "projectFilePath": "/Users/daniil/Documents/SheremetievoCase/Blockchain/smartcontract/smartcontract.csproj",
+  "expectedPackageFiles": [
+    "/Users/daniil/.nuget/packages/neo.smartcontract.framework/3.0.0/neo.smartcontract.framework.3.0.0.nupkg.sha512",
+    "/Users/daniil/.nuget/packages/neo3.compiler.csharp.dev/3.0.0/neo3.compiler.csharp.dev.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

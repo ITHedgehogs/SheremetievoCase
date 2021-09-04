@@ -9,4 +9,8 @@
     <PackageReference Include="Neo.SmartContract.Framework" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Payment\" />
+    <Folder Include="Persone\" />
+  </ItemGroup>
 </Project>
