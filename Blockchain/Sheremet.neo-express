@@ -74,6 +74,8 @@
     }
   ],
   "settings": {
-    "rpc.Port": "50012"
+    "rpc.BindAddress" : "127.0.0.1",
+    "rpc.MaxGasInvoke" : "1000000000",
+    "rpc.MaxFee" : "10000000"
   }
 }

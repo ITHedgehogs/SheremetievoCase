@@ -5,8 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Neo.Network.RPC.RpcClient" Version="3.0.1" />
-    <PackageReference Include="Neo.SmartContract.Framework" Version="3.0.2" />
+    <Compile Remove="smartcontract\**" />
+    <Compile Remove="Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="smartcontract\**" />
+    <EmbeddedResource Remove="Test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="smartcontract\**" />
+    <None Remove="Test\**" />
   </ItemGroup>
 
 </Project>

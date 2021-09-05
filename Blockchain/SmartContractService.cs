@@ -1,37 +1,49 @@
 using System;
-using Neo;
-using Neo.Network.RPC;
+using System.Collections.Generic;
 
 namespace Blockchain
 {
     public class SmartContractService : ISmartContractService
     {
-        private static RpcClient _client = new RpcClient(new Uri("http://127.0.0.1:50012"), 
-            null, null, ProtocolSettings.Load("node1.config.json"));
-        
-        public void OwnLocation(string lessorWallet, string locationId, DateTime leaseExpiration)
+        private static readonly Dictionary<string, string> locationLessor = new();
+        private static readonly Dictionary<string, DateTime> leaseExpiration = new();
+
+        public void OwnLocation(string lessorWallet, string locationId, DateTime leaseExpirationDate)
         {
-            throw new NotImplementedException();
+            locationLessor[locationId] = lessorWallet;
+            leaseExpiration[locationId] = leaseExpirationDate;
         }
 
-        public void UpdateLeaseExpiration(string locationId, DateTime leaseExpiration)
+        public void UpdateLeaseExpiration(string locationId, DateTime leaseExpirationDate)
         {
-            throw new NotImplementedException();
+            leaseExpiration[locationId] = leaseExpirationDate;
         }
 
         public void DeleteLocationOwner(string locationId)
         {
-            throw new NotImplementedException();
+            locationLessor.Remove(locationId);
         }
-
+        
+        /// <summary>
+        /// Gets wallet of entity that leases location
+        /// </summary>
+        /// <param name="locationId">Id or a name of the location</param>
+        /// <returns>Returns wallet address if lease and 'NimiqChy6z2FyXDTyfX7qrq1JVLTEM1rc3' otherwise</returns>
         public string GetLessorWallet(string locationId)
         {
-            throw new NotImplementedException();
+            return locationLessor.TryGetValue(locationId, out var val) ? 
+                val : "NimiqChy6z2FyXDTyfX7qrq1JVLTEM1rc3";
         }
-
+        
+        /// <summary>
+        /// Gets Lease Expiration Date
+        /// </summary>
+        /// <param name="locationId">Id or a name of the location</param>
+        /// <returns>Expiration Date if successful and UnixEpoch otherwise</returns>
         public DateTime GetLeaseExpiration(string locationId)
         {
-            throw new NotImplementedException();
+            return leaseExpiration.TryGetValue(locationId, out var dateTime) ? 
+                dateTime : DateTime.UnixEpoch;
         }
     }
 }
