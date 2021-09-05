@@ -25,7 +25,7 @@ namespace SheremetievoRent.Client.Helpers
             var user = await httpClient.GetFromJsonAsync<User>("api/users/current");
             if (user?.Email == null)
             {
-                navigation.NavigateTo("auth");
+                navigation.NavigateTo("/");
                 return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
             }
             var claimsIdentity = new ClaimsIdentity(new[]
