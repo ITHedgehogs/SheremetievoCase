@@ -1,0 +1,62 @@
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Text.Json
+@using AntDesign
+@using Microsoft.AspNetCore.Components
+@using SheremetievoRent.Shared
+@inherits LayoutComponentBase
+@inject HttpClient httpClient
+@inject NavigationManager navigation
+
+<Card Style="width:400px; border-radius: 10px; box-shadow: 0 15px 15px 0 rgba(34, 60, 80, 0.2)" Bordered="true" Size="small">
+    <TitleTemplate>
+        <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
+            <Icon Type="credit-card" Theme="outline"/>
+            <div style="width: 5px"></div> Авторизация партнёров
+        </div>
+    </TitleTemplate>
+    <Body>
+    <Form Model="@loginModel"
+          OnFinish="LoginAsync"
+          OnFinishFailed="OnFinishFailed"
+          Layout="vertical">
+        <FormItem Label="Почта">
+            <Input @bind-Value="@context.Email"/>
+        </FormItem>
+        <FormItem Label="Пароль">
+            <InputPassword @bind-Value="@context.Password"/>
+        </FormItem>
+        <div style="display: flex; align-items: center; justify-content: center">
+            <Button Type="@ButtonType.Primary" HtmlType="submit">
+                Войти
+            </Button>
+        </div>
+    </Form>
+    </Body>
+</Card>
+
+@code
+{
+    public class LoginModel
+    {
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+    }
+
+    private LoginModel loginModel = new LoginModel();
+
+    protected async Task LoginAsync()
+    {
+        await httpClient.PostAsJsonAsync("api/users/login",
+            new User() {Email = loginModel.Email, Password = loginModel.Password});
+        navigation.NavigateTo("/", true);
+    }
+
+    private void OnFinishFailed(EditContext editContext)
+    {
+        Console.WriteLine($"Failed:{JsonSerializer.Serialize(loginModel)}");
+    }
+}

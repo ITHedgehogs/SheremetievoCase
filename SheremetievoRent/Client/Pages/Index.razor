@@ -1,0 +1,49 @@
+@page "/"
+@using SheremetievoRent.Shared
+@using System.Security.Claims
+@using SheremetievoRent.Client.Helpers
+@inject HttpClient httpClient
+@inject AuthenticationStateProvider authProvider
+
+<AuthorizeView>
+    <Authorized>
+        <Cabinet></Cabinet>
+    </Authorized>
+    <NotAuthorized>
+        <image src="/Images/лого SVO 2017.png" asp-append-version="true" width="300" style="margin-bottom: 30px"/>
+        <RadioGroup @bind-Value="authType" Size="small">
+            <Radio RadioButton Value="@(AuthType.Login)">Авторизация</Radio>
+            <Radio RadioButton Value="@(AuthType.Registration)">Регистрация</Radio>
+        </RadioGroup>
+        @switch (authType)
+        {
+            case AuthType.Login:
+            {
+                <LoginForm></LoginForm>
+                break;
+            }
+            case AuthType.Registration:
+            {
+                <RegistrationForm></RegistrationForm>
+                break;
+            }
+            default:
+            {
+                <LoginForm></LoginForm>
+                break;
+            }
+        }
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code
+{
+    AuthType authType = AuthType.Login;
+
+    private enum AuthType
+    {
+        Login,
+        Registration,
+    }
+}

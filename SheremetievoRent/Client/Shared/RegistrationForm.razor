@@ -1,0 +1,168 @@
+﻿@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using System.Linq
+@using System.Text.Json
+@using AntDesign
+@using Microsoft.AspNetCore.Components
+@using SheremetievoRent.Shared
+@inherits LayoutComponentBase
+@inject HttpClient httpClient
+
+<Card Style="width:400px; border-radius: 10px; box-shadow: 0 15px 15px 0 rgba(34, 60, 80, 0.2)" Bordered="true" Size="small">
+    <TitleTemplate>
+        <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
+            <Icon Type="credit-card" Theme="outline"/>
+            <div style="width: 5px"></div> Регистрация партнёров
+        </div>
+    </TitleTemplate>
+    <Body>
+    <Form Model="@accountModel"
+          OnFinish="OnFinish"
+          OnFinishFailed="OnFinishFailed"
+          Layout="vertical">
+        <FormItem Label="Выберите тип">
+            <EnumSelect TEnum="RegType" @bind-Value="@regType"/>
+        </FormItem>
+        @switch (regType)
+        {
+            case RegType.IP:
+            {
+                <Divider Plain>Основная информация</Divider>
+                <FormItem Label="Фамилия">
+                    <Input @bind-Value="@context.FirstName"/>
+                </FormItem>
+                <FormItem Label="Имя">
+                    <Input @bind-Value="@context.LastName"/>
+                </FormItem>
+                <FormItem Label="Отчество">
+                    <Input @bind-Value="@context.MiddleName"/>
+                </FormItem>
+                <FormItem Label="Номер документа о регистрации ИП">
+                    <Input @bind-Value="@context.DocumentId"/>
+                </FormItem>
+                <FormItem Label="ИНН">
+                    <Input @bind-Value="@context.INN"/>
+                </FormItem>
+                <FormItem Label="ОГРН ИП">
+                    <Input @bind-Value="@context.OGRN"/>
+                </FormItem>
+                <Divider Plain>Паспортные данные</Divider>
+                <FormItem Label="Серия и номер паспорта">
+                    <Input @bind-Value="@context.PassportNumber"/>
+                </FormItem>
+                <FormItem Label="Пол">
+                    <Input @bind-Value="@context.Sex"/>
+                </FormItem>
+                <FormItem Label="Дата рождения">
+                    <DatePicker TValue="DateTime?" Picker="@DatePickerType.Date" @bind-Value="@context.BirthDay"/>
+                </FormItem>
+                <FormItem Label="Место рождения">
+                    <Input @bind-Value="@context.BirthPlace"/>
+                </FormItem>
+                <FormItem Label="Адрес регистрации">
+                    <Input @bind-Value="@context.Address"/>
+                </FormItem>
+                <FormItem Label="Кем выдан">
+                    <Input @bind-Value="@context.IssuedBy"/>
+                </FormItem>
+                <FormItem Label="Дата выдачи">
+                    <DatePicker TValue="DateTime?" Picker="@DatePickerType.Date" @bind-Value="@context.IssuedOn"/>
+                </FormItem>
+                <FormItem Label="Код подразделения">
+                    <Input @bind-Value="@context.DepartmentCode"/>
+                </FormItem>
+                <Divider Plain>Данные счёта</Divider>
+                <FormItem Label="Наименование обслуживающего банка">
+                    <Input @bind-Value="@context.BankName"/>
+                </FormItem>
+                <FormItem Label="Расчётный счёт">
+                    <Input @bind-Value="@context.PaymentAccount"/>
+                </FormItem>
+                <FormItem Label="Корр. счёт">
+                    <Input @bind-Value="@context.CorrespondentAccount"/>
+                </FormItem>
+                <FormItem Label="Код БИК">
+                    <Input @bind-Value="@context.BIC"/>
+                </FormItem>
+                <Divider Plain>Остальное</Divider>
+                <FormItem Label="Основные виды д-сти">
+                    <Select Mode="tags"
+                            Placeholder="Выбери одно или несколько..."
+                            @bind-Values="@context.BaseDeals"
+                            TItemValue="string"
+                            TItem="string"
+                            EnableSearch>
+                        <SelectOptions>
+                            @foreach (var item in _items)
+                            {
+                                <SelectOption TItemValue="string" TItem="string" Value=@item Label=@item/>
+                            }
+                        </SelectOptions>
+                    </Select>
+                </FormItem>
+                <FormItem Label="Email" Rules="new[] {new FormValidationRule {Type = FormFieldType.Email}}">
+                    <Input @bind-Value="@context.Email"/>
+                </FormItem>
+                <FormItem Label="Телефон/Факс">
+                    <Input @bind-Value="@context.Phone"/>
+                </FormItem>
+                <FormItem Label="Пароль">
+                    <InputPassword @bind-Value="@context.Password"/>
+                </FormItem>
+                <FormItem Label="Подтвердите пароль">
+                    <InputPassword @bind-Value="@Password"/>
+                </FormItem>
+                <div style="display: flex; align-items: center; justify-content: center">
+                    <Button Type="@ButtonType.Primary" HtmlType="submit">
+                        Зарегистрироваться
+                    </Button>
+                </div>
+                break;
+            }
+            case RegType.UL:
+            {
+                <p style="color: orangered">Регистрация юр. лиц на данный момент недоступна!</p>
+                break;
+            }
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    </Form>
+    </Body>
+</Card>
+
+@code
+{
+    private string Password { get; set; }
+
+    List<string> _items = new()
+    {
+        "Пиццерия",
+        "Бургерная",
+        "Игровая зона",
+        "Ресторан",
+        "Кафе",
+        "Зона отдыха"
+    };
+
+    private RegType regType { get; set; }
+
+    private enum RegType
+    {
+        [Display(Name = "Индивидуальный предприниматель")] IP,
+        [Display(Name = "Юридическое лицо")] UL
+    }
+
+    private User accountModel = new();
+
+    private void OnFinish(EditContext editContext)
+    {
+        Console.WriteLine($"Finished:{JsonSerializer.Serialize(accountModel)}");
+        httpClient.PostAsJsonAsync("api/users/register", accountModel);
+    }
+
+    private void OnFinishFailed(EditContext editContext)
+    {
+        Console.WriteLine($"Failed:{JsonSerializer.Serialize(accountModel)}");
+    }
+}

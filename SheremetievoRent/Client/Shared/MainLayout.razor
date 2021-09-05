@@ -1,0 +1,50 @@
+@inherits LayoutComponentBase
+@inject HttpClient httpClient
+@inject NavigationManager navigation
+
+<Layout Style="min-height: 100vh">
+    <Header Style="position: fixed; z-index: 1; width: 100%; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <image src="/Images/лого SVO 2017.png" asp-append-version="true" width="300" />
+        <Button @onclick="OnLogout">Выйти</Button>
+    </Header>
+    <Content Class="site-layout" Style="padding:0 50px; margin-top: 64px; ">
+        <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center; margin-top: 50px">
+            <Card Style="width:300px; height: 100px">
+                <CardMeta AvatarTemplate="@avatarTemplate" Title="Иван Иваныч Иванов" Description="Гроза бывалый всех дворов"/>
+            </Card>
+            <Card Style="height: 100px; width: 300px">
+                <Statistic Title="Active" Value="11.28" Precision="2" ValueStyle="color: #3f8600;" Suffix="%">
+                    <PrefixTemplate>
+                        <span>
+                            <Icon Type="arrow-up"/>
+                        </span>
+                    </PrefixTemplate>
+                </Statistic>
+            </Card>
+            <Card Style="height: 100px; width: 300px">
+                <Statistic Title="Idle" Value="9.3" Precision="2" ValueStyle="color: #cf1322;" Suffix="%">
+                    <PrefixTemplate>
+                        <span>
+                            <Icon Type="arrow-down"/>
+                        </span>
+                    </PrefixTemplate>
+                </Statistic>
+            </Card>
+        </div>
+        <div class="site-layout-background" style="padding: 24px; min-height: 380px ">
+            @Body
+        </div>
+    </Content>
+</Layout>
+
+@code
+{
+    RenderFragment avatarTemplate = @<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></Avatar>;
+
+    private async Task OnLogout()
+    {
+        await httpClient.GetAsync("api/users/logout");
+        navigation.NavigateTo("/", true);
+    }
+
+}

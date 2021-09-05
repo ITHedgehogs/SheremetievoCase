@@ -1,0 +1,4 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/AntDesign" Path="C:\Users\green\.nuget\packages\antdesign\0.9.3\build\..\staticwebassets\" />
+  <ContentRoot BasePath="/" Path="F:\Хакатоны\SheremetievoCase\SheremetievoRent\Client\bin\Release\net5.0\wwwroot\" />
+</StaticWebAssets>

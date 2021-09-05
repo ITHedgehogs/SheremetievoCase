@@ -1,0 +1,12 @@
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\bin\Release\net5.0\SheremetievoRent.Shared.deps.json
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\bin\Release\net5.0\SheremetievoRent.Shared.dll
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\bin\Release\net5.0\ref\SheremetievoRent.Shared.dll
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\bin\Release\net5.0\SheremetievoRent.Shared.pdb
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\SheremetievoRent.Shared.csproj.AssemblyReference.cache
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\SheremetievoRent.Shared.GeneratedMSBuildEditorConfig.editorconfig
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\SheremetievoRent.Shared.AssemblyInfoInputs.cache
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\SheremetievoRent.Shared.AssemblyInfo.cs
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\SheremetievoRent.Shared.csproj.CoreCompileInputs.cache
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\SheremetievoRent.Shared.dll
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\ref\SheremetievoRent.Shared.dll
+F:\Хакатоны\SheremetievoCase\SheremetievoRent\Shared\obj\Release\net5.0\SheremetievoRent.Shared.pdb
